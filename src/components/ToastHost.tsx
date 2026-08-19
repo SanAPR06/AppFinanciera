@@ -8,7 +8,10 @@ export function ToastHost() {
   if (toasts.length === 0) return null;
 
   return (
-    <div className="fixed top-4 inset-x-0 z-[60] flex flex-col items-center gap-2 px-4 pointer-events-none">
+    <div
+      className="fixed inset-x-0 z-[60] flex flex-col items-center gap-2 px-4 pointer-events-none"
+      style={{ top: 'max(1rem, calc(env(safe-area-inset-top) + 0.5rem))' }}
+    >
       {toasts.map((t) => (
         <div
           key={t.id}

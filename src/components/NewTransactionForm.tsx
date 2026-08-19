@@ -2,6 +2,7 @@ import { useMemo, useRef, useState } from 'react';
 import { TrendingUp, TrendingDown, ArrowLeftRight, Landmark, Banknote, CreditCard, Smartphone, PiggyBank, Folder } from 'lucide-react';
 import { useFinanceStore } from '../store/useFinanceStore';
 import { useToastStore } from '../store/useToastStore';
+import { extractErrorMessage } from '../lib/errorMessage';
 import type { Account, Transaction, TxType } from '../types';
 
 const TYPE_CONFIG: Record<TxType, { label: string; icon: typeof TrendingUp }> = {
@@ -116,7 +117,8 @@ export function NewTransactionForm({
       }
       onClose();
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'No se pudo guardar. Intenta de nuevo.');
+      console.error('Error al guardar transacción:', err);
+      setError(extractErrorMessage(err));
       submittingRef.current = false;
       setIsSubmitting(false);
     }

@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { useFinanceStore } from '../store/useFinanceStore';
 import { useToastStore } from '../store/useToastStore';
+import { extractErrorMessage } from '../lib/errorMessage';
 import { CURRENCIES, ACCOUNT_TYPE_LABELS, type Account, type AccountType } from '../types';
 
 export function NewAccountForm({
@@ -45,7 +46,8 @@ export function NewAccountForm({
       }
       onClose();
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'No se pudo guardar. Intenta de nuevo.');
+      console.error('Error al guardar cuenta:', err);
+      setError(extractErrorMessage(err));
       submittingRef.current = false;
       setIsSubmitting(false);
     }
