@@ -89,14 +89,20 @@ export function NewRecurringForm({
     };
     submittingRef.current = true;
     setIsSubmitting(true);
-    if (editingRecurring) {
-      await updateRecurring(editingRecurring.id, payload);
-      pushToast('Recurrente actualizada', 'success');
-    } else {
-      await addRecurring(payload);
-      pushToast('Recurrente creada', 'success');
+    try {
+      if (editingRecurring) {
+        await updateRecurring(editingRecurring.id, payload);
+        pushToast('Recurrente actualizada', 'success');
+      } else {
+        await addRecurring(payload);
+        pushToast('Recurrente creada', 'success');
+      }
+      onClose();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'No se pudo guardar. Intenta de nuevo.');
+      submittingRef.current = false;
+      setIsSubmitting(false);
     }
-    onClose();
   }
 
   if (accounts.length === 0) {
@@ -136,15 +142,22 @@ export function NewRecurringForm({
         })}
       </div>
 
-      <div className="flex items-center justify-center gap-1 py-2">
-        <span className="text-heading font-medium text-graphite dark:text-smoke">
+      <div className="flex items-center justify-center gap-1 py-2 max-w-full overflow-hidden">
+        <span
+          className={`font-medium text-graphite dark:text-smoke shrink-0 ${
+            amount.length > 6 ? 'text-subheading' : 'text-heading'
+          }`}
+        >
           {currencySymbol}
         </span>
         <input
           type="number"
           step="0.01"
           min="0"
-          className="w-40 text-heading-lg font-medium text-off-black-ink dark:text-off-white-canvas bg-transparent text-center outline-none tracking-heading-lg tabular-nums"
+          style={{ width: `${Math.max(2, amount.length || 1) + 0.5}ch` }}
+          className={`max-w-full font-medium text-off-black-ink dark:text-off-white-canvas bg-transparent text-center outline-none tabular-nums ${
+            amount.length > 6 ? 'text-heading tracking-heading' : 'text-heading-lg tracking-heading-lg'
+          }`}
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
           placeholder="0"
@@ -246,17 +259,26 @@ export function NewRecurringForm({
       )}
 
       <div className="flex flex-col gap-1.5">
-        <span className="text-caption font-medium text-graphite dark:text-smoke">
-          Día del mes: <span className="text-off-black-ink dark:text-off-white-canvas font-semibold">{dayOfMonth}</span>
-        </span>
-        <input
-          type="range"
-          min="1"
-          max="28"
-          value={dayOfMonth}
-          onChange={(e) => setDayOfMonth(Number(e.target.value))}
-          className="w-full accent-[#beff50]"
-        />
+        <span className="text-caption font-medium text-graphite dark:text-smoke">Día del mes</span>
+        <div className="flex gap-2 overflow-x-auto pb-1 -mx-1 px-1">
+          {Array.from({ length: 28 }, (_, i) => i + 1).map((day) => {
+            const active = dayOfMonth === day;
+            return (
+              <button
+                key={day}
+                type="button"
+                onClick={() => setDayOfMonth(day)}
+                className={`flex items-center justify-center w-9 h-9 rounded-pills text-body-sm font-medium border shrink-0 ${
+                  active
+                    ? 'bg-off-black-ink text-electric-lime border-off-black-ink dark:bg-electric-lime dark:text-off-black-ink dark:border-electric-lime'
+                    : 'border-ash dark:border-graphite/40 text-graphite dark:text-smoke'
+                }`}
+              >
+                {day}
+              </button>
+            );
+          })}
+        </div>
       </div>
 
       <label className="flex flex-col gap-1 text-caption font-medium text-graphite dark:text-smoke">

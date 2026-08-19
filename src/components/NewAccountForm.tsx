@@ -20,6 +20,7 @@ export function NewAccountForm({
     editingAccount ? String(editingAccount.initialBalance) : ''
   );
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
   const submittingRef = useRef(false);
 
   async function handleSubmit(e: React.FormEvent) {
@@ -27,20 +28,27 @@ export function NewAccountForm({
     if (!name.trim() || submittingRef.current) return;
     submittingRef.current = true;
     setIsSubmitting(true);
+    setError('');
     const payload = {
       name: name.trim(),
       type,
       currency,
       initialBalance: Number(initialBalance) || 0,
     };
-    if (editingAccount) {
-      await updateAccount(editingAccount.id, payload);
-      pushToast('Cuenta actualizada', 'success');
-    } else {
-      await addAccount(payload);
-      pushToast('Cuenta creada', 'success');
+    try {
+      if (editingAccount) {
+        await updateAccount(editingAccount.id, payload);
+        pushToast('Cuenta actualizada', 'success');
+      } else {
+        await addAccount(payload);
+        pushToast('Cuenta creada', 'success');
+      }
+      onClose();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'No se pudo guardar. Intenta de nuevo.');
+      submittingRef.current = false;
+      setIsSubmitting(false);
     }
-    onClose();
   }
 
   return (
@@ -103,6 +111,8 @@ export function NewAccountForm({
           />
         </label>
       </div>
+
+      {error && <p className="text-sm text-red-500">{error}</p>}
 
       <div className="flex justify-end gap-2 mt-2">
         <button

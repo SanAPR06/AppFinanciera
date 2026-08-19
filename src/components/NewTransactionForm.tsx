@@ -106,14 +106,20 @@ export function NewTransactionForm({
     };
     submittingRef.current = true;
     setIsSubmitting(true);
-    if (editingTransaction) {
-      await updateTransaction(editingTransaction.id, payload);
-      pushToast('Transacción actualizada', 'success');
-    } else {
-      await addTransaction(payload);
-      pushToast('Transacción guardada', 'success');
+    try {
+      if (editingTransaction) {
+        await updateTransaction(editingTransaction.id, payload);
+        pushToast('Transacción actualizada', 'success');
+      } else {
+        await addTransaction(payload);
+        pushToast('Transacción guardada', 'success');
+      }
+      onClose();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'No se pudo guardar. Intenta de nuevo.');
+      submittingRef.current = false;
+      setIsSubmitting(false);
     }
-    onClose();
   }
 
   if (accounts.length === 0) {
@@ -157,15 +163,22 @@ export function NewTransactionForm({
       </div>
 
       {/* Monto grande */}
-      <div className="flex items-center justify-center gap-1 py-2">
-        <span className="text-heading font-medium text-graphite dark:text-smoke">
+      <div className="flex items-center justify-center gap-1 py-2 max-w-full overflow-hidden">
+        <span
+          className={`font-medium text-graphite dark:text-smoke shrink-0 ${
+            amount.length > 6 ? 'text-subheading' : 'text-heading'
+          }`}
+        >
           {currencySymbol}
         </span>
         <input
           type="number"
           step="0.01"
           min="0"
-          className="w-40 text-heading-lg font-medium text-off-black-ink dark:text-off-white-canvas bg-transparent text-center outline-none tracking-heading-lg tabular-nums"
+          style={{ width: `${Math.max(2, amount.length || 1) + 0.5}ch` }}
+          className={`max-w-full font-medium text-off-black-ink dark:text-off-white-canvas bg-transparent text-center outline-none tabular-nums ${
+            amount.length > 6 ? 'text-heading tracking-heading' : 'text-heading-lg tracking-heading-lg'
+          }`}
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
           placeholder="0"

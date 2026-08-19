@@ -1,7 +1,7 @@
 import { useRef, useState, type ReactNode } from 'react';
 import { Trash2 } from 'lucide-react';
 
-const REVEAL_WIDTH = 76;
+const REVEAL_WIDTH = 64;
 
 export function SwipeToDelete({ children, onDelete }: { children: ReactNode; onDelete: () => void }) {
   const [translateX, setTranslateX] = useState(0);
@@ -40,7 +40,7 @@ export function SwipeToDelete({ children, onDelete }: { children: ReactNode; onD
           className="w-full h-full flex items-center justify-center text-white"
           title="Eliminar"
         >
-          <Trash2 size={18} />
+          <Trash2 size={16} />
         </button>
       </div>
       <div

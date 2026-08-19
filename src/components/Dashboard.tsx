@@ -95,7 +95,7 @@ export function Dashboard() {
       className="min-h-screen bg-pure-white dark:bg-off-black-ink"
       style={{ paddingBottom: 'calc(6rem + env(safe-area-inset-bottom))' }}
     >
-      <div className="px-4 sm:px-6 pt-6" style={{ paddingTop: 'max(1.5rem, env(safe-area-inset-top))' }}>
+      <div className="px-4 sm:px-6 pt-6">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
           <h1 className="text-heading font-medium text-off-black-ink dark:text-off-white-canvas tracking-heading">
             Mis Finanzas

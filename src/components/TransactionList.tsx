@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Pencil, X, Receipt } from 'lucide-react';
+import { Pencil, Receipt } from 'lucide-react';
 import { useFinanceStore } from '../store/useFinanceStore';
 import { useToastStore } from '../store/useToastStore';
 import { formatMoney } from './AccountCard';
@@ -155,13 +155,6 @@ export function TransactionList({
                             title="Editar"
                           >
                             <Pencil size={15} />
-                          </button>
-                          <button
-                            onClick={() => handleDelete(t)}
-                            className="text-graphite dark:text-smoke hover:text-red-500 p-1"
-                            title="Eliminar"
-                          >
-                            <X size={15} />
                           </button>
                         </div>
                       </div>
