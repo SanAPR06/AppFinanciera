@@ -18,6 +18,7 @@ import { PullToRefresh } from './PullToRefresh';
 import type { Account, RecurringTransaction, Transaction } from '../types';
 import { isSupabaseConfigured, supabase } from '../lib/supabaseClient';
 import { useTheme } from '../lib/useTheme';
+import { APP_VERSION } from '../version';
 
 export function Dashboard() {
   const allAccounts = useFinanceStore((s) => s.accounts);
@@ -97,8 +98,11 @@ export function Dashboard() {
     >
       <div className="px-4 sm:px-6 pt-6">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
-          <h1 className="text-heading font-medium text-off-black-ink dark:text-off-white-canvas tracking-heading">
+          <h1 className="flex items-baseline gap-2 text-heading font-medium text-off-black-ink dark:text-off-white-canvas tracking-heading">
             Mis Finanzas
+            <span className="text-caption font-normal text-graphite dark:text-smoke tracking-normal">
+              v{APP_VERSION}
+            </span>
           </h1>
           {isSupabaseConfigured && (
             <button
