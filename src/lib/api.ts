@@ -72,13 +72,17 @@ export async function fetchAll() {
   if (accountsRes.error) throw accountsRes.error;
   if (categoriesRes.error) throw categoriesRes.error;
   if (transactionsRes.error) throw transactionsRes.error;
-  if (recurringRes.error) throw recurringRes.error;
+  if (recurringRes.error) {
+    // No bloquear la sincronización principal si falta la migración de recurrentes
+    // (tabla recurring_transactions inexistente, por ejemplo).
+    console.warn('No se pudieron cargar las recurrentes:', recurringRes.error);
+  }
 
   return {
     accounts: accountsRes.data.map(rowToAccount),
     categories: categoriesRes.data.map(rowToCategory),
     transactions: transactionsRes.data.map(rowToTransaction),
-    recurringTransactions: recurringRes.data.map(rowToRecurring),
+    recurringTransactions: recurringRes.error ? [] : recurringRes.data.map(rowToRecurring),
   };
 }
 
