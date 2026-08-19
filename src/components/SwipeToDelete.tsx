@@ -51,7 +51,7 @@ export function SwipeToDelete({ children, onDelete }: { children: ReactNode; onD
           transform: `translateX(${translateX}px)`,
           transition: dragging ? 'none' : 'transform 0.2s ease-out',
         }}
-        className="relative bg-inherit"
+        className="relative bg-off-white-canvas dark:bg-deep-charcoal"
       >
         {children}
       </div>
