@@ -63,9 +63,7 @@ export function NewTransactionForm({
   const [categoryId, setCategoryId] = useState(editingTransaction?.categoryId ?? '');
   const [note, setNote] = useState(editingTransaction?.note ?? '');
   const [occurredAt, setOccurredAt] = useState(() =>
-    editingTransaction
-      ? toLocalDatetimeInput(editingTransaction.occurredAt)
-      : new Date().toISOString().slice(0, 16)
+    toLocalDatetimeInput(editingTransaction?.occurredAt ?? new Date().toISOString())
   );
   const [showCustomDate, setShowCustomDate] = useState(false);
   const [error, setError] = useState('');
@@ -295,7 +293,7 @@ export function NewTransactionForm({
           <div className="flex gap-2">
             <button
               type="button"
-              onClick={() => setOccurredAt(new Date().toISOString().slice(0, 16))}
+              onClick={() => setOccurredAt(toLocalDatetimeInput(new Date().toISOString()))}
               className={`px-3 py-2 rounded-pills text-body-sm font-medium border ${
                 isToday(occurredAt)
                   ? 'bg-off-black-ink text-electric-lime border-off-black-ink dark:bg-electric-lime dark:text-off-black-ink dark:border-electric-lime'
@@ -307,7 +305,7 @@ export function NewTransactionForm({
             <button
               type="button"
               onClick={() =>
-                setOccurredAt(new Date(Date.now() - 86400000).toISOString().slice(0, 16))
+                setOccurredAt(toLocalDatetimeInput(new Date(Date.now() - 86400000).toISOString()))
               }
               className={`px-3 py-2 rounded-pills text-body-sm font-medium border ${
                 isYesterday(occurredAt)
