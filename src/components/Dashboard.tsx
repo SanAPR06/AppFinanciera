@@ -12,6 +12,7 @@ import { TransactionList } from './TransactionList';
 import { BottomNav, type Tab } from './BottomNav';
 import { ThemeToggle } from './ThemeToggle';
 import { CategoryBreakdown } from './CategoryBreakdown';
+import { MonthlyTrend } from './MonthlyTrend';
 import { NewRecurringForm } from './NewRecurringForm';
 import { RecurringList } from './RecurringList';
 import { PullToRefresh } from './PullToRefresh';
@@ -252,11 +253,14 @@ export function Dashboard() {
               Historial
             </h2>
             {activeCurrency && (
-              <CategoryBreakdown
-                transactions={transactions}
-                categories={categories}
-                currency={activeCurrency}
-              />
+              <>
+                <MonthlyTrend transactions={transactions} currency={activeCurrency} />
+                <CategoryBreakdown
+                  transactions={transactions}
+                  categories={categories}
+                  currency={activeCurrency}
+                />
+              </>
             )}
             <div className="bg-off-white-canvas dark:bg-deep-charcoal dark:border dark:border-white/5 rounded-cards px-4">
               <TransactionList
