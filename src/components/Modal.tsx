@@ -7,7 +7,7 @@ export function Modal({ children, onClose }: { children: ReactNode; onClose: () 
       onClick={onClose}
     >
       <div
-        className="bg-pure-white dark:bg-deep-charcoal rounded-cards p-6 w-full max-w-md"
+        className="bg-pure-white dark:bg-deep-charcoal dark:border dark:border-white/5 rounded-cards p-6 w-full max-w-md"
         onClick={(e) => e.stopPropagation()}
       >
         {children}

@@ -168,14 +168,14 @@ export function Dashboard() {
                 )}
               </div>
               {accounts.length === 0 ? (
-                <div className="flex flex-col items-center gap-2 py-8 text-center bg-off-white-canvas dark:bg-deep-charcoal rounded-cards">
+                <div className="flex flex-col items-center gap-2 py-8 text-center bg-off-white-canvas dark:bg-deep-charcoal dark:border dark:border-white/5 rounded-cards">
                   <Wallet size={28} className="text-ash dark:text-graphite/60" />
                   <p className="text-graphite text-body-sm">
                     Aún no tienes cuentas. Crea la primera arriba.
                   </p>
                 </div>
               ) : (
-                <div className="bg-off-white-canvas dark:bg-deep-charcoal rounded-cards px-4 divide-y divide-ash dark:divide-graphite/40">
+                <div className="bg-off-white-canvas dark:bg-deep-charcoal dark:border dark:border-white/5 rounded-cards px-4 divide-y divide-ash dark:divide-graphite/40">
                   {accounts.slice(0, 3).map((account) => (
                     <AccountCard
                       key={account.id}
@@ -204,7 +204,7 @@ export function Dashboard() {
                   Ver todas
                 </button>
               </div>
-              <div className="bg-off-white-canvas dark:bg-deep-charcoal rounded-cards px-4">
+              <div className="bg-off-white-canvas dark:bg-deep-charcoal dark:border dark:border-white/5 rounded-cards px-4">
                 <TransactionList
                   compact
                   limit={5}
@@ -228,7 +228,7 @@ export function Dashboard() {
                 Aún no tienes cuentas. Crea la primera arriba.
               </p>
             ) : (
-              <div className="bg-off-white-canvas dark:bg-deep-charcoal rounded-cards px-4 divide-y divide-ash dark:divide-graphite/40">
+              <div className="bg-off-white-canvas dark:bg-deep-charcoal dark:border dark:border-white/5 rounded-cards px-4 divide-y divide-ash dark:divide-graphite/40">
                 {accounts.map((account) => (
                   <AccountCard
                     key={account.id}
@@ -258,7 +258,7 @@ export function Dashboard() {
                 currency={activeCurrency}
               />
             )}
-            <div className="bg-off-white-canvas dark:bg-deep-charcoal rounded-cards px-4">
+            <div className="bg-off-white-canvas dark:bg-deep-charcoal dark:border dark:border-white/5 rounded-cards px-4">
               <TransactionList
                 onEdit={(t) => {
                   setEditingTransaction(t);
@@ -274,7 +274,7 @@ export function Dashboard() {
             <h2 className="text-subheading font-medium text-off-black-ink dark:text-off-white-canvas mb-2">
               Perfil
             </h2>
-            <div className="bg-off-white-canvas dark:bg-deep-charcoal rounded-cards p-5 flex flex-col gap-4 mb-4">
+            <div className="bg-off-white-canvas dark:bg-deep-charcoal dark:border dark:border-white/5 rounded-cards p-5 flex flex-col gap-4 mb-4">
               <div>
                 <p className="text-eyebrow uppercase tracking-eyebrow text-graphite dark:text-smoke mb-2 font-medium">
                   Apariencia
@@ -303,7 +303,7 @@ export function Dashboard() {
               )}
             </div>
 
-            <div className="bg-off-white-canvas dark:bg-deep-charcoal rounded-cards p-5">
+            <div className="bg-off-white-canvas dark:bg-deep-charcoal dark:border dark:border-white/5 rounded-cards p-5">
               <div className="flex items-center justify-between mb-1">
                 <p className="text-eyebrow uppercase tracking-eyebrow text-graphite dark:text-smoke font-medium">
                   Transacciones recurrentes

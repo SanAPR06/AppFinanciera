@@ -50,7 +50,7 @@ export function CategoryBreakdown({
 
   if (breakdown.total === 0) {
     return (
-      <div className="bg-off-white-canvas dark:bg-deep-charcoal rounded-cards p-4 mb-4">
+      <div className="bg-off-white-canvas dark:bg-deep-charcoal dark:border dark:border-white/5 rounded-cards p-4 mb-4">
         <div className="flex items-baseline justify-between mb-1">
           <h3 className="text-body-sm font-medium text-off-black-ink dark:text-off-white-canvas capitalize">
             Gastos por categoría
@@ -65,7 +65,7 @@ export function CategoryBreakdown({
   }
 
   return (
-    <div className="bg-off-white-canvas dark:bg-deep-charcoal rounded-cards p-4 mb-4">
+    <div className="bg-off-white-canvas dark:bg-deep-charcoal dark:border dark:border-white/5 rounded-cards p-4 mb-4">
       <div className="flex items-baseline justify-between mb-3">
         <h3 className="text-body-sm font-medium text-off-black-ink dark:text-off-white-canvas capitalize">
           Gastos por categoría
