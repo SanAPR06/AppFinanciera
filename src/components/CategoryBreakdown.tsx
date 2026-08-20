@@ -46,11 +46,23 @@ export function CategoryBreakdown({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [transactions, categories, currency]);
 
-  if (breakdown.total === 0) {
-    return null;
-  }
-
   const monthLabel = now.toLocaleDateString('es-VE', { month: 'long', year: 'numeric' });
+
+  if (breakdown.total === 0) {
+    return (
+      <div className="bg-off-white-canvas dark:bg-deep-charcoal rounded-cards p-4 mb-4">
+        <div className="flex items-baseline justify-between mb-1">
+          <h3 className="text-body-sm font-medium text-off-black-ink dark:text-off-white-canvas capitalize">
+            Gastos por categoría
+          </h3>
+          <span className="text-caption text-graphite dark:text-smoke capitalize">{monthLabel}</span>
+        </div>
+        <p className="text-caption text-graphite dark:text-smoke">
+          Sin gastos en {currency} este mes. Si registraste en otra moneda, cambia el toggle de arriba.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="bg-off-white-canvas dark:bg-deep-charcoal rounded-cards p-4 mb-4">
