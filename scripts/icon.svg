@@ -1,9 +1,9 @@
 <svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-  <rect width="512" height="512" rx="112" fill="#beff50"/>
+  <rect width="512" height="512" rx="112" fill="#a78bfa"/>
   <!-- Billetera -->
-  <rect x="120" y="180" width="272" height="188" rx="28" fill="#14140f"/>
-  <rect x="120" y="180" width="272" height="60" rx="28" fill="#14140f"/>
+  <rect x="120" y="180" width="272" height="188" rx="28" fill="#0f0d14"/>
+  <rect x="120" y="180" width="272" height="60" rx="28" fill="#0f0d14"/>
   <!-- Broche / moneda -->
-  <circle cx="330" cy="288" r="34" fill="#beff50"/>
-  <text x="330" y="300" font-family="system-ui, sans-serif" font-size="34" font-weight="700" fill="#14140f" text-anchor="middle">$</text>
+  <circle cx="330" cy="288" r="34" fill="#a78bfa"/>
+  <text x="330" y="300" font-family="system-ui, sans-serif" font-size="34" font-weight="700" fill="#0f0d14" text-anchor="middle">$</text>
 </svg>

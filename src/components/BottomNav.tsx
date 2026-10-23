@@ -50,7 +50,7 @@ export function BottomNav({
         ))}
         <button
           onClick={onAdd}
-          className="absolute left-1/2 -translate-x-1/2 -top-6 w-14 h-14 rounded-pills bg-electric-lime text-off-black-ink flex items-center justify-center hover:opacity-90"
+          className="absolute left-1/2 -translate-x-1/2 -top-6 w-14 h-14 rounded-pills bg-electric-violet text-off-black-ink flex items-center justify-center hover:opacity-90"
           title="Nueva transacción"
         >
           <Plus size={26} />

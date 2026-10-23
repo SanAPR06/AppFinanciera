@@ -25,7 +25,7 @@ export function ThemeToggle({
             onClick={() => onChange(opt.value)}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-pills text-body-sm font-medium ${
               active
-                ? 'bg-electric-lime text-off-black-ink'
+                ? 'bg-electric-violet text-off-black-ink'
                 : 'text-graphite dark:text-smoke hover:text-off-black-ink dark:hover:text-off-white-canvas'
             }`}
           >

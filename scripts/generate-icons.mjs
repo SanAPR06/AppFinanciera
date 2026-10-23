@@ -26,7 +26,7 @@ for (const t of targets) {
     const inner = Math.round(t.size * 0.7);
     const inset = await sharp(svgPath).resize(inner, inner).toBuffer();
     await sharp({
-      create: { width: t.size, height: t.size, channels: 4, background: '#14140f' },
+      create: { width: t.size, height: t.size, channels: 4, background: '#0f0d14' },
     })
       .composite([{ input: inset, gravity: 'center' }])
       .png()

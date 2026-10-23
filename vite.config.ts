@@ -14,8 +14,8 @@ export default defineConfig({
         name: 'Mis Finanzas',
         short_name: 'Finanzas',
         description: 'Control financiero personal — cuentas, gastos e ingresos en un solo lugar.',
-        theme_color: '#beff50',
-        background_color: '#14140f',
+        theme_color: '#a78bfa',
+        background_color: '#0f0d14',
         display: 'standalone',
         start_url: '/',
         icons: [

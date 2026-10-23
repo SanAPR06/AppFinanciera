@@ -2,15 +2,15 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-electric-lime: #beff50;
-  --color-off-black-ink: #14140f;
-  --color-off-white-canvas: #f5f5eb;
+  --color-electric-violet: #a78bfa;
+  --color-off-black-ink: #0f0d14;
+  --color-off-white-canvas: #f4f1fb;
   --color-pure-white: #ffffff;
-  --color-ash: #d2d2c8;
-  --color-graphite: #6e6e64;
-  --color-deep-charcoal: #3a3a33;
-  --color-stone: #919183;
-  --color-smoke: #b9b9b7;
+  --color-ash: #d9d3e6;
+  --color-graphite: #6b6580;
+  --color-deep-charcoal: #2a2536;
+  --color-stone: #8c85a0;
+  --color-smoke: #bdb8cc;
 
   --font-otsono:
     'OTSono', 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',

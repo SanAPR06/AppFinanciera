@@ -83,7 +83,7 @@ export function Onboarding({ onFinish }: { onFinish: () => void }) {
             const Icon = slide.icon;
             return (
               <div key={i} className="w-full shrink-0 flex flex-col items-center text-center px-4">
-                <div className="w-24 h-24 rounded-cards bg-electric-lime flex items-center justify-center mb-8">
+                <div className="w-24 h-24 rounded-cards bg-electric-violet flex items-center justify-center mb-8">
                   <Icon size={40} className="text-off-black-ink" />
                 </div>
                 <h2 className="text-subheading font-medium text-off-black-ink dark:text-off-white-canvas mb-3">
@@ -105,7 +105,7 @@ export function Onboarding({ onFinish }: { onFinish: () => void }) {
             onClick={() => goTo(i)}
             aria-label={`Ir al paso ${i + 1}`}
             className={`h-2 rounded-pills transition-all ${
-              i === index ? 'w-6 bg-electric-lime' : 'w-2 bg-ash dark:bg-graphite/40'
+              i === index ? 'w-6 bg-electric-violet' : 'w-2 bg-ash dark:bg-graphite/40'
             }`}
           />
         ))}
@@ -114,7 +114,7 @@ export function Onboarding({ onFinish }: { onFinish: () => void }) {
       <div className="px-6 pb-8">
         <button
           onClick={() => (isLast ? onFinish() : goTo(index + 1))}
-          className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-buttons bg-electric-lime text-off-black-ink font-medium hover:opacity-90"
+          className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-buttons bg-electric-violet text-off-black-ink font-medium hover:opacity-90"
         >
           {isLast ? 'Comenzar' : 'Siguiente'}
           <ArrowRight size={18} />

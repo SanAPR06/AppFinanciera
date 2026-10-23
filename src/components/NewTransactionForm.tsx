@@ -151,7 +151,7 @@ export function NewTransactionForm({
               }}
               className={`flex-1 flex flex-col items-center gap-1 py-2.5 rounded-buttons text-caption font-medium transition-colors ${
                 active
-                  ? 'bg-electric-lime text-off-black-ink'
+                  ? 'bg-electric-violet text-off-black-ink'
                   : 'text-graphite dark:text-smoke'
               }`}
             >
@@ -202,7 +202,7 @@ export function NewTransactionForm({
                 onClick={() => setAccountId(a.id)}
                 className={`flex items-center gap-1.5 px-3 py-2 rounded-pills text-body-sm font-medium border shrink-0 ${
                   active
-                    ? 'bg-off-black-ink text-electric-lime border-off-black-ink dark:bg-electric-lime dark:text-off-black-ink dark:border-electric-lime'
+                    ? 'bg-off-black-ink text-electric-violet border-off-black-ink dark:bg-electric-violet dark:text-off-black-ink dark:border-electric-violet'
                     : 'border-ash dark:border-graphite/40 text-graphite dark:text-smoke'
                 }`}
               >
@@ -230,7 +230,7 @@ export function NewTransactionForm({
                     onClick={() => setDestinationAccountId(a.id)}
                     className={`flex items-center gap-1.5 px-3 py-2 rounded-pills text-body-sm font-medium border shrink-0 ${
                       active
-                        ? 'bg-off-black-ink text-electric-lime border-off-black-ink dark:bg-electric-lime dark:text-off-black-ink dark:border-electric-lime'
+                        ? 'bg-off-black-ink text-electric-violet border-off-black-ink dark:bg-electric-violet dark:text-off-black-ink dark:border-electric-violet'
                         : 'border-ash dark:border-graphite/40 text-graphite dark:text-smoke'
                     }`}
                   >
@@ -255,7 +255,7 @@ export function NewTransactionForm({
               onClick={() => setCategoryId('')}
               className={`px-3 py-2 rounded-pills text-body-sm font-medium border shrink-0 ${
                 categoryId === ''
-                  ? 'bg-off-black-ink text-electric-lime border-off-black-ink dark:bg-electric-lime dark:text-off-black-ink dark:border-electric-lime'
+                  ? 'bg-off-black-ink text-electric-violet border-off-black-ink dark:bg-electric-violet dark:text-off-black-ink dark:border-electric-violet'
                   : 'border-ash dark:border-graphite/40 text-graphite dark:text-smoke'
               }`}
             >
@@ -296,7 +296,7 @@ export function NewTransactionForm({
               onClick={() => setOccurredAt(toLocalDatetimeInput(new Date().toISOString()))}
               className={`px-3 py-2 rounded-pills text-body-sm font-medium border ${
                 isToday(occurredAt)
-                  ? 'bg-off-black-ink text-electric-lime border-off-black-ink dark:bg-electric-lime dark:text-off-black-ink dark:border-electric-lime'
+                  ? 'bg-off-black-ink text-electric-violet border-off-black-ink dark:bg-electric-violet dark:text-off-black-ink dark:border-electric-violet'
                   : 'border-ash dark:border-graphite/40 text-graphite dark:text-smoke'
               }`}
             >
@@ -309,7 +309,7 @@ export function NewTransactionForm({
               }
               className={`px-3 py-2 rounded-pills text-body-sm font-medium border ${
                 isYesterday(occurredAt)
-                  ? 'bg-off-black-ink text-electric-lime border-off-black-ink dark:bg-electric-lime dark:text-off-black-ink dark:border-electric-lime'
+                  ? 'bg-off-black-ink text-electric-violet border-off-black-ink dark:bg-electric-violet dark:text-off-black-ink dark:border-electric-violet'
                   : 'border-ash dark:border-graphite/40 text-graphite dark:text-smoke'
               }`}
             >
@@ -357,7 +357,7 @@ export function NewTransactionForm({
         <button
           type="submit"
           disabled={isSubmitting}
-          className="flex-1 px-5 py-2.5 rounded-buttons bg-electric-lime text-off-black-ink font-medium hover:opacity-90 disabled:opacity-50"
+          className="flex-1 px-5 py-2.5 rounded-buttons bg-electric-violet text-off-black-ink font-medium hover:opacity-90 disabled:opacity-50"
         >
           {editingTransaction ? 'Guardar cambios' : 'Guardar'}
         </button>

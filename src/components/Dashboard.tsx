@@ -117,7 +117,7 @@ export function Dashboard() {
       </div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 mt-6">
-        <div className="bg-electric-lime rounded-cards p-6 flex flex-col items-center text-center">
+        <div className="bg-electric-violet rounded-cards p-6 flex flex-col items-center text-center">
           <p className="text-eyebrow uppercase tracking-eyebrow text-off-black-ink/70 font-medium">
             Saldo total
           </p>
@@ -132,7 +132,7 @@ export function Dashboard() {
                   onClick={() => setSelectedCurrency(currency)}
                   className={`px-3 py-1 rounded-pills text-caption font-medium border ${
                     currency === activeCurrency
-                      ? 'bg-off-black-ink text-electric-lime border-off-black-ink'
+                      ? 'bg-off-black-ink text-electric-violet border-off-black-ink'
                       : 'border-off-black-ink/30 text-off-black-ink/70'
                   }`}
                 >

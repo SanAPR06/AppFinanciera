@@ -93,7 +93,7 @@ export function AuthGate({ children }: { children: ReactNode }) {
 
         <button
           type="submit"
-          className="px-5 py-2.5 rounded-buttons bg-electric-lime text-off-black-ink hover:opacity-90 font-medium mt-1"
+          className="px-5 py-2.5 rounded-buttons bg-electric-violet text-off-black-ink hover:opacity-90 font-medium mt-1"
         >
           {mode === 'signin' ? 'Entrar' : 'Registrarme'}
         </button>

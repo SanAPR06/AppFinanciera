@@ -66,7 +66,7 @@ export function RecurringList({ onEdit }: { onEdit: (r: RecurringTransaction) =>
               <button
                 onClick={() => toggleRecurringActive(r.id, !r.isActive)}
                 className={`relative w-9 h-5 rounded-pills transition-colors ${
-                  r.isActive ? 'bg-electric-lime' : 'bg-ash dark:bg-graphite/40'
+                  r.isActive ? 'bg-electric-violet' : 'bg-ash dark:bg-graphite/40'
                 }`}
                 title={r.isActive ? 'Activa' : 'Pausada'}
               >

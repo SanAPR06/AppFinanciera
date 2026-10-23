@@ -18,7 +18,7 @@ export function ToastHost() {
           onClick={() => dismiss(t.id)}
           className={`pointer-events-auto flex items-center gap-2 px-4 py-2.5 rounded-buttons shadow-none border text-body-sm font-medium animate-toast-in ${
             t.variant === 'success'
-              ? 'bg-electric-lime border-electric-lime text-off-black-ink'
+              ? 'bg-electric-violet border-electric-violet text-off-black-ink'
               : 'bg-off-black-ink border-off-black-ink text-off-white-canvas'
           }`}
         >

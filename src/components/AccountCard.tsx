@@ -32,7 +32,7 @@ export function AccountCard({
   const displayedBalance = useCountUp(balance);
   return (
     <div className="flex items-center gap-3 py-3">
-      <div className="w-10 h-10 rounded-pills bg-electric-lime flex items-center justify-center shrink-0">
+      <div className="w-10 h-10 rounded-pills bg-electric-violet flex items-center justify-center shrink-0">
         <Icon size={18} className="text-off-black-ink" />
       </div>
       <div className="flex-1 min-w-0">
